@@ -13,25 +13,17 @@
     "debug": "^3.1.0",
     "express": "^4.16.4",
     "express-hbs": "^1.0.4",
-    "mongoose": "^4.13.7",
+    "mongoose": "^5.7.11",
     "node-env-file": "^0.1.8",
     "querystring": "^0.2.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "handlebars": ">=4.0.14",
+    "lodash": ">=4.17.13",
+    "axios": ">=0.18.1",
+    "mpath": ">=0.5.1",
+    "bson": ">=1.0.5",
+    "hoek": ">=4.2.1"
   },
   "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/howdyai/botkit-starter-web.git"
-  },
-  "bugs": {
-    "url": "https://github.com/howdyai/botkit-starter-web/issues"
-  },
-  "homepage": "https://github.com/howdyai/botkit-starter-web",
-  "keywords": [
-    "bots",
-    "chatbots",
-    "web chat"
-  ],
-  "author": "ben@howdy.ai",
   "license": "MIT"
 }
