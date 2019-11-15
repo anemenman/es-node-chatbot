@@ -1,7 +1,7 @@
 version: '2'
 services:
-    chatbot-elasticsearch-dev:
-        image: chatbot-elasticsearch-dev:latest
+    es-node-chatbot-elasticsearch:
+        image: es-node-chatbot-elasticsearch:latest
         ports:
             - 9221:9200
             - 9321:9300
