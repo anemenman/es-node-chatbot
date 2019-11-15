@@ -7,23 +7,33 @@
     "start": "node bot.js"
   },
   "dependencies": {
+    "axios": ">=0.18.1",
     "body-parser": "^1.19.0",
     "botkit": "^0.7.5",
     "botkit-storage-mongo": "^1.0.7",
+    "bson": ">=1.0.5",
+    "collections": "^5.1.9",
+    "csv-parse": "^4.8.1",
     "debug": "^4.1.1",
+    "elasticsearch": "^16.5.0",
     "express": "^4.17.1",
     "express-hbs": "^2.2.0",
+    "handlebars": ">=4.0.14",
+    "hashcode": "^1.0.3",
+    "hoek": ">=4.2.1",
+    "lodash": ">=4.17.13",
     "mongoose": "^5.7.11",
+    "mpath": ">=0.5.1",
     "node-env-file": "^0.1.8",
     "querystring": "^0.2.0",
-    "request": "^2.88.0",
-    "handlebars": ">=4.0.14",
-    "lodash": ">=4.17.13",
-    "axios": ">=0.18.1",
-    "mpath": ">=0.5.1",
-    "bson": ">=1.0.5",
-    "hoek": ">=4.2.1"
+    "request": "^2.88.0"
   },
   "devDependencies": {},
+  "keywords": [
+    "bots",
+    "chatbots",
+    "web chat"
+  ],
+  "author": "aa",
   "license": "MIT"
 }
