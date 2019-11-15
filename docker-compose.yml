@@ -1,0 +1,15 @@
+version: '2'
+services:
+
+    es-node-chatbot:
+        image: es-node-chatbot
+        container_name: es-node-chatbot
+        ports:
+            - 3001:3000
+
+    es-node-chatbot-elasticsearch:
+            build: es-node-chatbot-elasticsearch
+            container_name: es-node-chatbot-elasticsearch
+            extends:
+                file: elasticsearch.yml
+                service: es-node-chatbot-elasticsearch

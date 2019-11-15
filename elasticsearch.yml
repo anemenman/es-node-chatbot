@@ -1,0 +1,8 @@
+version: '2'
+services:
+    chatbot-elasticsearch-dev:
+        image: chatbot-elasticsearch-dev:latest
+        ports:
+            - 9221:9200
+            - 9321:9300
+        command: -Enetwork.host=0.0.0.0 -Ediscovery.type=single-node

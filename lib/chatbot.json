@@ -1,0 +1,166 @@
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "russian_analyzer": {
+          "type": "stemmer",
+          "language": "russian"
+        },
+        "russian_stopwords": {
+          "type": "stop",
+          "stopwords": "_russian_"
+        },
+        "autocomplete_filter": {
+          "type": "edge_ngram",
+          "min_gram": 1,
+          "max_gram": 20
+        }
+      },
+      "analyzer": {
+        "morphology_analyzer": {
+          "filter": [
+            "standard",
+            "lowercase",
+            "russian_morphology",
+            "russian_stopwords",
+            "asciifolding"
+          ],
+          "tokenizer": "standard"
+        },
+        "ngram_default_analyzer": {
+          "filter": [
+            "standard",
+            "lowercase",
+            "russian_analyzer",
+            "russian_stopwords",
+            "asciifolding"
+          ],
+          "tokenizer": "trigram"
+        },
+        "russian_default_analyzer": {
+          "filter": [
+            "standard",
+            "lowercase",
+            "russian_analyzer",
+            "russian_stopwords",
+            "asciifolding"
+          ],
+          "tokenizer": "standard"
+        },
+        "ngram_morphology_analyzer": {
+          "filter": [
+            "standard",
+            "lowercase",
+            "russian_morphology",
+            "russian_stopwords",
+            "asciifolding"
+          ],
+          "tokenizer": "trigram"
+        },
+        "ngram_search": {
+          "tokenizer": "standard"
+        },
+        "autocomplete": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "autocomplete_filter"
+          ],
+          "char_filter": [
+            "html_strip"
+          ]
+        }
+      },
+      "tokenizer": {
+        "trigram": {
+          "token_chars": [
+            "letter",
+            "digit"
+          ],
+          "min_gram": "3",
+          "type": "edge_ngram",
+          "max_gram": "8"
+        }
+      }
+    },
+    "number_of_shards": "5",
+    "number_of_replicas": "1"
+  },
+  "mappings": {
+    "chatbot": {
+      "properties": {
+        "question": {
+          "type": "text",
+          "term_vector": "with_positions_offsets",
+          "fields": {
+            "body_stemmed": {
+              "analyzer": "russian_default_analyzer",
+              "type": "text"
+            },
+            "morphology_stemmed": {
+              "analyzer": "morphology_analyzer",
+              "type": "text"
+            },
+            "raw": {
+              "ignore_above": 256,
+              "type": "keyword"
+            },
+            "ngram_morphology": {
+              "term_vector": "with_positions_offsets",
+              "analyzer": "ngram_morphology_analyzer",
+              "type": "text"
+            },
+            "ngram_default": {
+              "analyzer": "ngram_default_analyzer",
+              "type": "text"
+            },
+            "autocomplete": {
+              "term_vector": "with_positions_offsets",
+              "analyzer": "autocomplete",
+              "type": "text"
+            }
+          }
+        },
+        "question_keywords": {
+          "type": "text",
+          "term_vector": "with_positions_offsets",
+          "fields": {
+            "body_stemmed": {
+              "analyzer": "russian_default_analyzer",
+              "type": "text"
+            },
+            "morphology_stemmed": {
+              "analyzer": "morphology_analyzer",
+              "type": "text"
+            },
+            "raw": {
+              "ignore_above": 256,
+              "type": "keyword"
+            },
+            "ngram_morphology": {
+              "term_vector": "with_positions_offsets",
+              "analyzer": "ngram_morphology_analyzer",
+              "type": "text"
+            },
+            "ngram_default": {
+              "analyzer": "ngram_default_analyzer",
+              "type": "text"
+            },
+            "autocomplete": {
+              "term_vector": "with_positions_offsets",
+              "analyzer": "autocomplete",
+              "type": "text"
+            }
+          }
+        },
+        "type": {
+          "type": "text"
+        },
+        "answer": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
